@@ -1,0 +1,35 @@
+# ShieldSense – Week 5 Roles
+
+## Kapil Thapa Magar – Model & Evaluation Lead
+- Begin development of the TF-IDF + Logistic Regression classifier.
+- Prepare evaluation code for accuracy, precision, recall and F1-score.
+- Evaluate the rules-based baseline using verified/held-out data when available.
+- Produce a confusion matrix including incorrect classifications.
+- Document model limitations and misclassification examples.
+- Commit all model and evaluation source code to GitHub.
+
+## Jaskaran Singh – Data & Labelling Lead
+- Complete and verify the labelled ShieldSense dataset.
+- Finalise the risk-label convention.
+- Lock the held-out test set for model evaluation.
+- Complete the dataset data card.
+- Complete inter-rater agreement checks.
+- Commit final data and labelling documentation to GitHub.
+
+## Alisha – Interface & Accessibility Lead
+- Develop the working ShieldSense interface prototype.
+- Implement message input and Green/Amber/Red result states.
+- Continue accessibility checks against WCAG 2.2 AA.
+- Commit interface source code to GitHub.
+
+## Bijay Bahadur Chhetri – Integration, Documentation & QA Lead
+- Prepare integration between the model and user interface.
+- Review repository structure and documentation.
+- Update installation and run instructions where required.
+- Begin integration and QA testing.
+- Record integration issues and testing results in GitHub.
+
+## Week 5 Team Goal
+By the end of Week 5, the team should have a verified dataset and held-out
+test set, an initial machine-learning classifier, a working interface
+prototype, and the foundations for model-interface integration and testing.
