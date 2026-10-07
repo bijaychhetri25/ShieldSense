@@ -1,82 +1,70 @@
 # ShieldSense QA Results
 
-## Week 4 Testing Status
+**Student:** Bijay Bahadur Chhetri  
+**Role:** Integration, Documentation & QA Lead
 
-The initial integration and QA test cases have been prepared for ShieldSense.
+## Week 5 QA Testing
 
-At this stage, the model and user interface are still being developed and integrated. Therefore, full end-to-end application testing has not yet been completed.
+The current rules-based baseline was tested against the supervisor feedback test cases.
 
-## Dataset Verification
+| Test ID | Test Case | Expected | Actual | Result |
+|---|---|---|---|---|
+| TC07 | Password request | HIGH | HIGH | PASS |
+| TC08 | Bank account blocked + transfer | HIGH | HIGH | PASS |
+| TC09 | Urgency-only message | LOW | HIGH | FAIL |
+| TC10 | Shopping message / word-boundary check | LOW | LOW | PASS |
 
-The ShieldSense dataset was regenerated and verified after balancing the risk classes.
+## QA Summary
 
-| Check | Result |
-|---|---|
-| Total messages | 180 |
-| Required columns | PASS |
-| Duplicate messages | 0 |
-| Empty messages | 0 |
-| Red messages | 60 |
-| Amber messages | 60 |
-| Green messages | 60 |
-| Unique messages | 180 |
+- Tests executed: 4
+- Passed: 3
+- Failed: 1
+- Pass rate: 75%
 
-The dataset now contains an equal number of Red, Amber and Green risk-level records.
+## Issue Identified
 
-### Scam Category Distribution
+### TC09 – Urgency-only message
 
-| Category | Number |
-|---|---:|
-| Bank Scam | 18 |
-| Delivery Scam | 17 |
-| Government Scam | 17 |
-| Investment Scam | 17 |
-| Job Scam | 17 |
-| Prize Scam | 17 |
-| Tech Support Scam | 17 |
-| Legitimate | 60 |
+**Test message:**
 
-## Basic Integration QA
+> "URGENT! Act now, limited time!"
 
-The initial Python integration checks were executed successfully.
+**Expected result:** LOW
 
-The checks confirmed that:
+**Actual result:** HIGH
 
-- Risk levels are restricted to Low, Medium and High.
-- Model output contains a risk level.
-- Model output contains an explanation.
-- The required output structure is present.
+The current rules-based classifier detects three urgency indicators:
 
-**Basic integration checks: PASSED**
+- urgent
+- act now
+- limited time
 
-## Current QA Status
+This produces a score of 3. The current classifier assigns HIGH risk to scores of 3 or above.
 
-| Test ID | Test Description | Result | Evidence |
-|---|---|---|---|
-| TC01 | Test a low-risk message | Not yet tested | Pending model/interface integration |
-| TC02 | Test a medium-risk message | Not yet tested | Pending model/interface integration |
-| TC03 | Test a high-risk message | Not yet tested | Pending model/interface integration |
-| TC04 | Test an empty message | Not yet tested | Pending interface integration |
-| TC05 | Test a normal non-scam message | Not yet tested | Pending model/interface integration |
-| TC06 | Test a message containing scam indicators | Not yet tested | Pending model/interface integration |
-| TC07 | Compare model output with interface result | Not yet tested | Pending integration |
-| TC08 | Check explanation is displayed | Not yet tested | Pending interface integration |
-| TC09 | Test a long message | Not yet tested | Pending interface integration |
-| TC10 | Check risk-level visual cue | Not yet tested | Pending interface integration |
+## QA Finding
 
-## QA Limitations
+The urgency-only case does not match the expected supervisor requirement.
 
-Full application-level QA cannot be completed until the model and user interface are integrated.
+The issue has been recorded for review by the Model & Evaluation Lead.
 
-The current completed checks cover dataset structure, class balance, duplicate/empty-message checks and basic integration output validation.
+No changes were made to the Model & Evaluation Lead's source code as part of this QA test.
 
-Further testing will be performed after the model and interface components are available in the repository.
+## Successful Checks
 
-## Next QA Activities
+**TC07 – Password request**
 
-1. Integrate the model with the user interface.
-2. Run the full QA test cases.
-3. Compare model predictions with interface results.
-4. Check risk explanations and visual risk cues.
-5. Record test failures and corrections.
-6. Update this document with final test results.
+The password request was correctly classified as HIGH.
+
+**TC08 – Blocked bank account + transfer**
+
+The blocked bank account and transfer message was correctly classified as HIGH.
+
+**TC10 – Word-boundary check**
+
+The message "Going shopping later?" was correctly classified as LOW. The test confirms that "pin" is not incorrectly detected inside the word "shopping".
+
+## Next Action
+
+The failed TC09 result should be reviewed by the Model & Evaluation Lead.
+
+After any model change, the QA tests should be executed again to confirm whether the issue has been resolved.
