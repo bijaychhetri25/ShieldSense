@@ -23,5 +23,5 @@ Additional Python dependencies will be documented when the application component
 Clone the repository:
 
 ```bash
-git clone <ShieldSense-repository-URL>
+git clone https://github.com/bijaychhetri25/ShieldSense.git
 cd ShieldSense
