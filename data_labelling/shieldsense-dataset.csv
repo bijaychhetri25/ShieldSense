@@ -1,0 +1,201 @@
+id,message,label,labeller,date_labelled,hard_negative,notes
+1,"Hey, are we still meeting at 3pm tomorrow?",Low,JS,2026-09-23,FALSE,
+2,"Your Woolworths order has been delivered.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+3,"Your parcel could not be delivered. Reschedule here: bit.ly/xyz",Medium,JS,2026-09-23,FALSE,Shortened link
+4,"Your account has a new login. If this wasn't you, contact us.",Medium,JS,2026-09-23,TRUE,Matches scam pattern
+5,"Your bank account will be suspended. Verify now: [link]",High,JS,2026-09-23,FALSE,Clear phishing
+6,"You have won $5,000. Send bank details to claim.",High,JS,2026-09-23,FALSE,Too-good-to-be-true
+7,"Reminder: dentist appointment tomorrow at 10am.",Low,JS,2026-09-23,FALSE,
+8,"Your Telstra bill is ready. View it in the app.",Low,JS,2026-09-23,TRUE,Legitimate but urgent tone
+9,"URGENT: Your account will be closed. Act now.",High,JS,2026-09-23,FALSE,Threat + urgency
+10,"Can you send me the report by 5pm?",Low,JS,2026-09-23,FALSE,
+11,"Your ATO refund is ready. Log in to myGov.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+12,"Congratulations! You have been selected for a survey. Click here.",Medium,JS,2026-09-23,FALSE,
+13,"Your parcel is at the post office. Bring ID to collect.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+14,"Final notice: unpaid toll. Pay now or face legal action: [link]",High,JS,2026-09-23,FALSE,Threat + link
+15,"Hi, it's Sarah from work. Are you free to chat?",Low,JS,2026-09-23,FALSE,
+16,"Your electricity bill is overdue. Please pay by Friday.",Low,JS,2026-09-23,TRUE,Legitimate but urgent tone
+17,"You have a new voicemail. Call this number to listen.",Medium,JS,2026-09-23,FALSE,
+18,"Your appointment at ACU Health Clinic is confirmed for Tuesday.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+19,"Claim your free iPhone now! Limited time offer.",High,JS,2026-09-23,FALSE,Too-good-to-be-true
+20,"Your Netflix payment failed. Update your details here.",Medium,JS,2026-09-23,FALSE,Matches scam pattern
+21,"Mum, can you pick up milk on your way home?",Low,JS,2026-09-23,FALSE,
+22,"Your tax refund is pending. Verify your bank details.",High,JS,2026-09-23,FALSE,Request for personal info
+23,"Your order #12345 has shipped. Track it in the app.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+24,"You have 24 hours to claim your prize. Click here.",High,JS,2026-09-23,FALSE,Urgency + link
+25,"Your gym membership is due for renewal.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+26,"We tried to deliver your package. Reschedule here: [link]",Medium,JS,2026-09-23,FALSE,Shortened link
+27,"Your bank has detected unusual activity. Call us immediately.",Medium,JS,2026-09-23,TRUE,Legitimate but urgent
+28,"You are pre-approved for a $10,000 loan. Apply now.",Medium,JS,2026-09-23,FALSE,Too-good-to-be-true but no direct ask
+29,"Your subscription is about to expire. Renew now.",Low,JS,2026-09-23,TRUE,Legitimate but urgent
+30,"Send your password to verify your account.",High,JS,2026-09-23,FALSE,Clear phishing
+31,"Dinner at 7? Let me know.",Low,JS,2026-09-23,FALSE,
+32,"Your Opal card balance is low. Top up at opal.com.au.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+33,"Your account is locked. Confirm your identity: bit.ly/lock",Medium,JS,2026-09-23,FALSE,Shortened link
+34,"Your Centrelink payment is ready. Log in to myGov.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+35,"You owe $450 in unpaid fines. Pay now: [link]",High,JS,2026-09-23,FALSE,Threat + link
+36,"Your Uber ride receipt.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+37,"We have your parcel. Pay $2 release fee: [link]",High,JS,2026-09-23,FALSE,Small fee scam pattern
+38,"Your electricity bill is ready. View online.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+39,"Your account will be terminated. Verify now.",High,JS,2026-09-23,FALSE,Threat + urgency
+40,"Reminder: your appointment is tomorrow at 2pm.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+41,"Click here to claim your $1000 reward.",High,JS,2026-09-23,FALSE,Too-good-to-be-true
+42,"Your PayPal account has been limited. Verify: [link]",High,JS,2026-09-23,FALSE,Clear phishing
+43,"Your flight is confirmed for tomorrow.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+44,"Congratulations, you've won a holiday! Claim now.",High,JS,2026-09-23,FALSE,Too-good-to-be-true
+45,"Your Medicare card is expiring. Update now.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+46,"Your bank requires immediate verification: [link]",High,JS,2026-09-23,FALSE,Clear phishing
+47,"Please confirm your booking for Saturday.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+48,"You have an unpaid invoice. Click to pay: [link]",High,JS,2026-09-23,FALSE,Threat + link
+49,"Your order has been dispatched.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+50,"Your password will expire. Reset now: [link]",Medium,JS,2026-09-23,FALSE,Matches scam pattern
+51,"Your account has been compromised. Call this number.",High,JS,2026-09-23,FALSE,Threat + call action
+52,"Team meeting moved to 3pm.",Low,JS,2026-09-23,FALSE,
+53,"Your subscription payment failed. Update details.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+54,"Your Apple ID has been locked. Verify: [link]",High,JS,2026-09-23,FALSE,Clear phishing
+55,"Your child's school has an event Friday.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+56,"You have been selected for a $500 gift card.",High,JS,2026-09-23,FALSE,Too-good-to-be-true
+57,"Your internet will be disconnected. Pay now.",High,JS,2026-09-23,FALSE,Threat + payment
+58,"Your flight has been delayed by 30 minutes.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+59,"Verify your identity to keep your account.",High,JS,2026-09-23,FALSE,Request for identity
+60,"Your car registration is due for renewal.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+61,"Urgent: Your account has been flagged. Click here.",High,JS,2026-09-23,FALSE,Urgency + link
+62,"Your package is delayed. Track it here: [link]",Medium,JS,2026-09-23,FALSE,Shortened link
+63,"Your gym has new opening hours.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+64,"Claim your refund now. Provide bank details.",High,JS,2026-09-23,FALSE,Request for bank details
+65,"Your subscription has been renewed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+66,"Your bank account has been frozen. Verify immediately.",High,JS,2026-09-23,FALSE,Threat + urgency
+67,"Reminder: pick up your prescription.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+68,"You have a refund waiting. Claim here: [link]",Medium,JS,2026-09-23,FALSE,Shortened link
+69,"Your phone bill is ready to view.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+70,"Your account has been hacked. Click to secure.",High,JS,2026-09-23,FALSE,Threat + link
+71,"Your parcel is out for delivery.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+72,"You have been charged $500. Dispute here: [link]",High,JS,2026-09-23,FALSE,Threat + link
+73,"Your insurance policy is due.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+74,"You qualify for a tax refund. Claim now.",Medium,JS,2026-09-23,FALSE,Matches scam pattern
+75,"Your meeting is confirmed for Tuesday.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+76,"Confirm your bank details to receive payment.",High,JS,2026-09-23,FALSE,Request for bank details
+77,"Your appointment has been rescheduled.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+78,"Your account is at risk. Log in now: [link]",High,JS,2026-09-23,FALSE,Threat + link
+79,"Your library book is due for return.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+80,"Your delivery failed. Pay a small fee: [link]",High,JS,2026-09-23,FALSE,Small fee scam
+81,"Your bill is due tomorrow.",Low,JS,2026-09-23,TRUE,Legitimate but urgent
+82,"Your account is suspended. Reactivate: [link]",High,JS,2026-09-23,FALSE,Threat + link
+83,"Your order has been cancelled.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+84,"Your subscription will auto-renew.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+85,"You have an unpaid balance. Pay here: [link]",High,JS,2026-09-23,FALSE,Threat + link
+86,"Your account is past due. Update payment.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+87,"Your parcel needs a customs fee. Pay: [link]",High,JS,2026-09-23,FALSE,Small fee scam
+88,"Your order is on the way.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+89,"Your account is being reviewed. Verify details.",High,JS,2026-09-23,FALSE,Request for details
+90,"Your registration is due next month.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+91,"You have won a competition! Claim now.",High,JS,2026-09-23,FALSE,Too-good-to-be-true
+92,"Your account has been locked for security.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+93,"Your payment has been processed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+94,"Your account needs verification. Click here.",High,JS,2026-09-23,FALSE,Request + link
+95,"Your parcel is held at customs.",Medium,JS,2026-09-23,FALSE,Matches scam pattern
+96,"Your subscription has been paused.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+97,"Your account has suspicious activity. Verify.",High,JS,2026-09-23,FALSE,Threat + request
+98,"Your bill has been paid.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+99,"Your account has been flagged for review.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+100,"Your refund is ready. Provide bank details.",High,JS,2026-09-23,FALSE,Request for bank details
+101,"Your order will arrive tomorrow.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+102,"Your account is under review. Confirm identity.",High,JS,2026-09-23,FALSE,Request for identity
+103,"Your appointment is confirmed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+104,"Your account has been temporarily locked.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+105,"Your parcel is awaiting collection.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+106,"Your account is at risk. Confirm now.",High,JS,2026-09-23,FALSE,Threat + request
+107,"Your payment is overdue.",Low,JS,2026-09-23,TRUE,Legitimate but urgent
+108,"Your account will be closed. Verify now.",High,JS,2026-09-23,FALSE,Threat + urgency
+109,"Your order is confirmed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+110,"Your account is being verified.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+111,"Your account is suspended pending verification.",High,JS,2026-09-23,FALSE,Threat + request
+112,"Your parcel has been delivered.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+113,"Your account is pending review.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+114,"Your account is locked. Reset password: [link]",High,JS,2026-09-23,FALSE,Threat + link
+115,"Your subscription is active.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+116,"Your account has been temporarily suspended.",High,JS,2026-09-23,FALSE,Threat
+117,"Your order is being processed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+118,"Your account needs urgent attention.",High,JS,2026-09-23,FALSE,Urgency + request
+119,"Your appointment is next week.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+120,"Your account is flagged. Verify identity.",High,JS,2026-09-23,FALSE,Request for identity
+121,"Your parcel is on the way.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+122,"Your account is being reviewed.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+123,"Your account is at risk. Verify now.",High,JS,2026-09-23,FALSE,Threat + request
+124,"Your order has been received.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+125,"Your account has been compromised. Secure it: [link]",High,JS,2026-09-23,FALSE,Threat + link
+126,"Your subscription is about to renew.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+127,"Your account is being locked.",High,JS,2026-09-23,FALSE,Threat
+128,"Your parcel is at the depot.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+129,"Your account is under review. Contact us.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+130,"Your account is suspended. Call now.",High,JS,2026-09-23,FALSE,Threat + call action
+131,"Your appointment is at 3pm.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+132,"Your account has been restricted.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+133,"Your account is at risk. Act now.",High,JS,2026-09-23,FALSE,Threat + urgency
+134,"Your order has been shipped.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+135,"Your account has been verified.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+136,"Your account is pending verification.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+137,"Your account is locked. Verify: [link]",High,JS,2026-09-23,FALSE,Threat + link
+138,"Your bill has been issued.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+139,"Your account is under review. Verify now.",High,JS,2026-09-23,FALSE,Request + urgency
+140,"Your order is ready for pickup.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+141,"Your account has been flagged.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+142,"Your account is at risk. Verify identity.",High,JS,2026-09-23,FALSE,Threat + request
+143,"Your subscription is confirmed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+144,"Your account is suspended. Verify now.",High,JS,2026-09-23,FALSE,Threat + urgency
+145,"Your parcel is being delivered.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+146,"Your account is flagged for suspicious activity.",High,JS,2026-09-23,FALSE,Threat
+147,"Your appointment is tomorrow.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+148,"Your account is being verified. Confirm now.",High,JS,2026-09-23,FALSE,Request + urgency
+149,"Your order has been placed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+150,"Your account is locked. Contact us.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+151,"Your account is at risk. Confirm identity.",High,JS,2026-09-23,FALSE,Threat + request
+152,"Your parcel is out for delivery.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+153,"Your account has been suspended.",High,JS,2026-09-23,FALSE,Threat
+154,"Your order is confirmed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+155,"Your account is under review. Verify.",High,JS,2026-09-23,FALSE,Request + urgency
+156,"Your subscription is active.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+157,"Your account is at risk. Secure it: [link]",High,JS,2026-09-23,FALSE,Threat + link
+158,"Your appointment is confirmed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+159,"Your account is suspended. Contact us.",High,JS,2026-09-23,FALSE,Threat
+160,"Your order is on the way.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+161,"Your account is being reviewed. Confirm.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+162,"Your account is at risk. Verify now.",High,JS,2026-09-23,FALSE,Threat + urgency
+163,"Your parcel is awaiting collection.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+164,"Your account is locked. Verify identity.",High,JS,2026-09-23,FALSE,Threat + request
+165,"Your order is being processed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+166,"Your account is flagged for review.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+167,"Your account is at risk. Confirm now.",High,JS,2026-09-23,FALSE,Threat + urgency
+168,"Your parcel has been dispatched.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+169,"Your account is suspended. Verify: [link]",High,JS,2026-09-23,FALSE,Threat + link
+170,"Your appointment is next week.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+171,"Your account is under review.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+172,"Your account is at risk. Act now.",High,JS,2026-09-23,FALSE,Threat + urgency
+173,"Your order is confirmed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+174,"Your account is locked. Reset now.",High,JS,2026-09-23,FALSE,Threat + urgency
+175,"Your parcel is on the way.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+176,"Your account is being verified.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+177,"Your account is at risk. Secure now.",High,JS,2026-09-23,FALSE,Threat + urgency
+178,"Your order is ready.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+179,"Your account is suspended. Call us.",High,JS,2026-09-23,FALSE,Threat + call action
+180,"Your appointment is confirmed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+181,"Your account is flagged. Verify now.",High,JS,2026-09-23,FALSE,Threat + request
+182,"Your parcel is at the post office.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+183,"Your account is under review. Contact us.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+184,"Your account is at risk. Confirm now.",High,JS,2026-09-23,FALSE,Threat + urgency
+185,"Your order has been placed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+186,"Your account is locked. Verify: [link]",High,JS,2026-09-23,FALSE,Threat + link
+187,"Your appointment is tomorrow.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+188,"Your account is suspended. Verify now.",High,JS,2026-09-23,FALSE,Threat + urgency
+189,"Your parcel is being delivered.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+190,"Your account is being reviewed.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+191,"Your account is at risk. Secure it: [link]",High,JS,2026-09-23,FALSE,Threat + link
+192,"Your order is confirmed.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+193,"Your account is flagged. Contact us.",Medium,JS,2026-09-23,TRUE,Legitimate but matches scam wording
+194,"Your account is at risk. Verify now.",High,JS,2026-09-23,FALSE,Threat + urgency
+195,"Your subscription is active.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+196,"Your account is suspended. Verify: [link]",High,JS,2026-09-23,FALSE,Threat + link
+197,"Your appointment is next week.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+198,"Your account is under review. Verify now.",High,JS,2026-09-23,FALSE,Request + urgency
+199,"Your order is on the way.",Low,JS,2026-09-23,TRUE,Legitimate service notification
+200,"Your account is at risk. Confirm identity.",High,JS,2026-09-23,FALSE,Threat + request
