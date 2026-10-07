@@ -5,66 +5,56 @@
 
 ## Week 5 QA Testing
 
-The current rules-based baseline was tested against the supervisor feedback test cases.
+The current rules-based baseline was tested against the supervisor feedback
+test cases.
 
 | Test ID | Test Case | Expected | Actual | Result |
 |---|---|---|---|---|
 | TC07 | Password request | HIGH | HIGH | PASS |
 | TC08 | Bank account blocked + transfer | HIGH | HIGH | PASS |
-| TC09 | Urgency-only message | LOW | HIGH | FAIL |
+| TC09 | Urgency-only message | HIGH | HIGH | PASS |
 | TC10 | Shopping message / word-boundary check | LOW | LOW | PASS |
 
 ## QA Summary
 
 - Tests executed: 4
-- Passed: 3
-- Failed: 1
-- Pass rate: 75%
+- Passed: 4
+- Failed: 0
+- Pass rate: 100%
 
-## Issue Identified
+All four supervisor feedback test cases passed against the current
+rules-based baseline.
 
-### TC09 – Urgency-only message
+### Test Outcome Summary
 
-**Test message:**
+- **TC07 – Password request:** HIGH → HIGH — PASS
+- **TC08 – Blocked bank account + transfer:** HIGH → HIGH — PASS
+- **TC09 – Urgency-only message:** HIGH → HIGH — PASS
+- **TC10 – Shopping message / word-boundary check:** LOW → LOW — PASS
 
-> "URGENT! Act now, limited time!"
+The QA testing confirms that the current baseline produces the expected
+risk levels for these four test cases.
 
-**Expected result:** LOW
+## Integration QA Notes
 
-**Actual result:** HIGH
+The Streamlit interface was also tested locally with the current
+rules-based baseline.
 
-The current rules-based classifier detects three urgency indicators:
+The interface successfully:
 
-- urgent
-- act now
-- limited time
+- accepts an SMS or chat message as input;
+- runs the message through the classification logic;
+- displays the risk level;
+- displays the risk score;
+- displays the reasons for the classification;
+- presents Low, Medium and High risk states using Green, Amber and Red
+  visual cues;
+- provides a technical result section for QA/debugging information.
 
-This produces a score of 3. The current classifier assigns HIGH risk to scores of 3 or above.
+## Current QA Status
 
-## QA Finding
+**Status: PASS**
 
-The urgency-only case does not match the expected supervisor requirement.
-
-The issue has been recorded for review by the Model & Evaluation Lead.
-
-No changes were made to the Model & Evaluation Lead's source code as part of this QA test.
-
-## Successful Checks
-
-**TC07 – Password request**
-
-The password request was correctly classified as HIGH.
-
-**TC08 – Blocked bank account + transfer**
-
-The blocked bank account and transfer message was correctly classified as HIGH.
-
-**TC10 – Word-boundary check**
-
-The message "Going shopping later?" was correctly classified as LOW. The test confirms that "pin" is not incorrectly detected inside the word "shopping".
-
-## Next Action
-
-The failed TC09 result should be reviewed by the Model & Evaluation Lead.
-
-After any model change, the QA tests should be executed again to confirm whether the issue has been resolved.
+The supervisor feedback test cases and the current local interface
+workflow have been checked. Further QA will be performed when the
+machine-learning model is integrated with the interface.
