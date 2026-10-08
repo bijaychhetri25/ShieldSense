@@ -1,0 +1,31 @@
+id,message,Jaskaran,Kapil,Alisha,Bijay
+1,"Your parcel is waiting. Click here.",Medium,Low,Medium,Low
+2,"Hi, it's Sarah from work.",Low,Low,Low,Low
+3,"Your account has a new login.",Medium,Medium,Medium,Low
+4,"Final notice: unpaid toll. Pay now.",High,High,High,High
+5,"Your Telstra bill is ready. View it in the app.",Low,Low,Low,Low
+6,"You have won a $500 gift card. Claim here.",High,High,High,High
+7,"Reminder: dentist appointment tomorrow.",Low,Low,Low,Low
+8,"Your ATO refund is ready. Log in to myGov.",Medium,Medium,Low,Medium
+9,"URGENT: Your account will be closed.",High,High,High,High
+10,"Can you send me the report by 5pm?",Low,Low,Low,Low
+11,"Your account is suspended. Verify: [link]",High,High,High,High
+12,"Your account has been flagged. Verify now.",High,High,Medium,High
+13,"Your subscription is active.",Low,Low,Low,Low
+14,"Your order has been shipped.",Low,Low,Low,Low
+15,"Your account is at risk. Act now.",High,High,High,High
+16,"Your account is pending review.",Medium,Medium,Medium,Medium
+17,"Your account is under review. Verify now.",High,High,High,High
+18,"URGENT: act now.",Medium,High,High,High
+19,"Your account is locked. Verify: [link]",High,High,High,High
+20,"Your appointment is confirmed.",Low,Low,Low,Low
+21,"Confirm your identity.",Medium,Medium,Low,Medium
+22,"Your account is at risk. Verify now.",High,High,High,High
+23,"Your order is on the way.",Low,Low,Low,Low
+24,"Hi, it's Sarah from work.",Low,Low,Low,Low
+25,"Your account is suspended. Verify now.",High,High,High,High
+26,"Your subscription has been paused.",Low,Low,Low,Low
+27,"Your account is flagged. Contact us.",Medium,Medium,Medium,Medium
+28,"Your account is at risk. Confirm now.",High,High,High,High
+29,"Send me the code you just got.",High,High,High,High
+30,"Your appointment is next week.",Low,Low,Low,Low

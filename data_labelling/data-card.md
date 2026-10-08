@@ -18,11 +18,14 @@ Supports training and evaluation of a lightweight text classifier that labels SM
 - Public datasets: None used at this stage. If used, licensing will be documented here.
 - No real personal messages: No real SMS, no real phone numbers, no real names, no scraped inboxes.
 
-## 4. Size
 
-- Target: 150–250 messages
-- Current: 200 messages
-- Distribution: Balanced across Low, Medium, High
+## 4. Size and Distribution
+
+- **Total:** 202 messages
+- **Low risk:** 68 messages (33.7%)
+- **Medium risk:** 67 messages (33.2%)
+- **High risk:** 67 messages (33.2%)
+- **Hard negatives:** 108 messages — legitimate service notifications that resemble scams
 
 ## 5. Labelling
 
@@ -32,13 +35,17 @@ Supports training and evaluation of a lightweight text classifier that labels SM
 - Inter-rater agreement: Cohen's kappa (target ≥ 0.61)
 - Adjudication: Documented in the agreement report
 
-## 6. Limitations
+## 6. Held-Out Test Set
 
-- Synthetic data may not capture the full range of real scam messages.
-- English-language short-text messages only.
-- No URLs are resolved live.
-- Hard negatives are included but may not cover every legitimate service pattern.
-- Bias may exist in the synthetic generation process.
+- **Split ratio:** Stratified 80/20 (162 train / 40 test)
+- **Split date:** 8 October 2026
+- **Split method:** Stratified by risk label using fixed random seed (42)
+- **Test set file:** `test-set.csv` (40 messages)
+- **Training set file:** `training-set.csv` (162 messages)
+- **Test set composition:** 14 Low, 13 Medium, 13 High
+- **Lock status:** LOCKED as of 8 October 2026
+- **Lock note:** See `test-set-lock.md`
+- **Leakage check:** Scheduled for Week 6
 
 ## 7. Ethical Constraints
 
