@@ -16,12 +16,14 @@ This folder holds all artefacts owned by the Data & Labelling Lead:
 - `week1-prep.md` through `week4-prep.md` — weekly meeting prep
 - `scam-patterns-notes.md` — background research
 
-## Status
+## Status (Week 5)
 
 - Taxonomy v2 finalised
-- Labelling protocol v1 finalised
-- Dataset 200 messages built
-- Consistency check batch 1 completed
-- Consistency check batch 2 in progress
-- Held-out test set pending client split ratio ruling
-- Data card draft in progress
+- Labelling protocol v1.0 finalised
+- Dataset: 202 messages, balanced across Low / Medium / High (33% each)
+- Hard negatives: 108
+- All verifier checks pass (labels, duplicates, length, PII, balance, hard negatives)
+- Held-out test set locked (stratified 80/20, 162 train / 40 test)
+- Inter-rater agreement: average Cohen's kappa = 0.832 (Almost perfect), 89.5% agreement
+- Five Python scripts committed: create, dedupe, split, verify, agreement
+- Ready for Week 6 leakage check
