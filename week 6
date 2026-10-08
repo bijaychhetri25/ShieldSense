@@ -1,0 +1,43 @@
+ITEC320 Week 6 Contribution Report
+ShieldSense Accessible Scam Message Screening Application
+Student	Alisha
+Student ID	S00391669
+Placement week	Week 6 — 5 to 9 October 2026
+Individual role	Interface and Accessibility Lead
+Planned hours	12 hours
+1 Purpose and weekly focus
+During Week 6, I focused on preparing the ShieldSense interface and accessibility evidence for the progress presentation. My work supported the team’s held-out evaluation by checking how classifier outcomes were communicated to users, reviewing the Green, Amber and Red risk presentation, and identifying interface improvements needed before the formal accessibility pass and feature freeze in Week 7.
+2 Work completed
+Risk result interface review
+I reviewed the way low-, medium- and high-risk results appear in the web interface. I checked that each result includes a clear risk label, a short plain-language explanation and an appropriate next-step message. This approach reduces reliance on technical terminology and helps users understand why a message may be suspicious.
+Accessibility and usability checks
+I carried out an initial accessibility review against the main WCAG 2.2 AA requirements relevant to the prototype. I checked that colour was supported by visible text labels, interactive controls could be identified clearly, headings and instructions were understandable, and the layout remained readable at different screen sizes. I recorded issues to be addressed during the Week 7 accessibility pass.
+Support for evaluation and error analysis
+I examined how held-out test examples were displayed after classification, with particular attention to cases where the predicted category could be unclear to a user. I noted that the interface must present the model output consistently and must not overstate certainty. Where a result is Amber or Red, the screen should provide practical guidance such as avoiding links, verifying the sender independently and not sharing personal information.
+Progress presentation preparation
+I prepared and rehearsed the section of the progress presentation covering the interface design, risk-colour system, accessibility decisions and my individual contribution. I used supervisor feedback to make the explanation more focused on visible evidence, user needs and the relationship between the model result and the final warning shown on screen.
+3 Week 6 activity and hours record
+Date	Activity	Hours	Evidence
+5 Oct 2026	Reviewed the Green, Amber and Red result flow and checked plain-language explanations.	2.5	Interface notes
+6 Oct 2026	Checked colour-independent labels, headings, controls and responsive presentation against relevant WCAG 2.2 AA considerations.	3.0	Accessibility checklist
+7 Oct 2026	Reviewed held-out examples in the interface and documented unclear or potentially misleading result presentation.	2.5	Test observations
+8 Oct 2026	Prepared presentation content and evidence of my individual interface and accessibility contribution.	2.0	Draft slides and notes
+9 Oct 2026	Rehearsed the presentation, recorded feedback and updated the Week 7 action list.	2.0	Feedback and action list
+Total hours: 12.0
+ 
+4 Evidence and artefacts
+•	Current clickable ShieldSense interface showing Green, Amber and Red results with written risk labels.
+•	Initial accessibility checklist and notes identifying improvements for the Week 7 WCAG 2.2 AA pass.
+•	Held-out result-display observations, including examples where explanation wording or user guidance needs refinement.
+•	Progress presentation slides, speaking notes and the supervisor feedback action list.
+•	Updated Student Attendance Record with file or repository references for each activity.
+5 Challenges and decisions required
+The main challenge was presenting model output in a way that is understandable without suggesting that the classifier is always correct. The interface therefore needs consistent confidence language and clear safety advice. A client decision is required on the final wording and thresholds used for Green, Amber and Red results so that the interface matches the agreed evaluation protocol.
+6 Reflection
+Week 6 showed me that an accurate model alone is not enough for a responsible scam-screening application. Users must be able to understand the result, recognise the level of risk without depending only on colour and know what action to take next. Rehearsing the presentation also helped me explain my contribution more professionally by connecting each design decision to user safety and accessibility rather than describing only the visual appearance of the page.
+7 Actions for Week 7
+•	Complete the formal accessibility pass and document findings against the agreed checklist.
+•	Correct priority issues affecting colour contrast, keyboard access, labels, focus visibility or responsive layout.
+•	Confirm final Green, Amber and Red wording with the client and ensure it aligns with the evaluation results.
+•	Deliver the progress presentation and clearly explain my individual contribution.
+•	Support feature freeze by recording unresolved ideas in the handover backlog rather than expanding scope.
