@@ -1,0 +1,574 @@
+
+import sys
+from pathlib import Path
+from datetime import datetime
+from html import escape
+
+import streamlit as st
+
+
+# ---------------------------------
+# Project imports
+# ---------------------------------
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from model_evaluation.rules_baseline import classify_message
+from model_evaluation.ml_predictor import predict_message
+
+
+# ---------------------------------
+# Page configuration
+# ---------------------------------
+
+st.set_page_config(
+    page_title="ShieldSense | Scam Detection",
+    page_icon="🛡️",
+    layout="centered"
+)
+
+
+# ---------------------------------
+# Session state
+# ---------------------------------
+
+if "scan_history" not in st.session_state:
+    st.session_state.scan_history = []
+
+if "latest_result" not in st.session_state:
+    st.session_state.latest_result = None
+
+
+# ---------------------------------
+# Custom styling
+# ---------------------------------
+
+st.markdown("""
+<style>
+    .main-title {
+        text-align: center;
+        color: #2563eb;
+        font-size: 42px;
+        font-weight: 800;
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #64748b;
+        margin-bottom: 25px;
+    }
+
+    .risk-card {
+        padding: 24px;
+        border-radius: 14px;
+        margin: 15px 0;
+        border: 2px solid;
+    }
+
+    .low-risk {
+        background: #dcfce7;
+        color: #14532d;
+        border-color: #15803d;
+    }
+
+    .medium-risk {
+        background: #fef3c7;
+        color: #78350f;
+        border-color: #b45309;
+    }
+
+    .high-risk {
+        background: #fee2e2;
+        color: #7f1d1d;
+        border-color: #b91c1c;
+    }
+
+    .risk-card h2 {
+        color: inherit;
+        margin: 0 0 10px 0;
+    }
+
+    .risk-card p {
+        color: inherit;
+        margin: 0;
+    }
+
+    .footer {
+        text-align: center;
+        color: #64748b;
+        font-size: 13px;
+        padding: 15px;
+    }
+
+    div.stButton > button:focus-visible {
+        outline: 3px solid #2563eb;
+        outline-offset: 3px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
+# ---------------------------------
+# Header
+# ---------------------------------
+
+st.markdown(
+    '<h1 class="main-title">🛡️ ShieldSense</h1>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    '<p class="subtitle">'
+    'Accessible Scam-Message Screening System'
+    '</p>',
+    unsafe_allow_html=True
+)
+
+st.info(
+    "ShieldSense helps identify potentially suspicious "
+    "SMS and chat messages using rule-based and "
+    "machine-learning detection."
+)
+
+st.caption(
+    "This is a prototype. Results are estimates, "
+    "not guarantees that a message is safe or fraudulent."
+)
+
+st.divider()
+
+
+# ---------------------------------
+# Message input
+# ---------------------------------
+
+st.subheader("📝 Message Analysis")
+
+message = st.text_area(
+    "Enter the message you want to check",
+    placeholder="Paste or type an SMS or chat message...",
+    height=160,
+    help="Enter a message to analyse for scam indicators."
+)
+
+st.caption(
+    "For privacy, avoid entering passwords, banking "
+    "details or other sensitive information."
+)
+
+model_choice = st.radio(
+    "Choose detection model",
+    ["Rules-Based Baseline", "Machine Learning"],
+    horizontal=True
+)
+
+
+# ---------------------------------
+# Analyse message
+# ---------------------------------
+
+if st.button(
+    "🔍 Check Message",
+    type="primary",
+    use_container_width=True
+):
+
+    if not message.strip():
+        st.warning(
+            "Please enter a message before checking."
+        )
+
+    else:
+
+        try:
+            with st.spinner("Analysing your message..."):
+
+                if model_choice == "Machine Learning":
+                    result = predict_message(message)
+                else:
+                    result = classify_message(message)
+
+                if not isinstance(result, dict):
+                    raise ValueError("Invalid model response")
+
+                risk = str(
+                    result.get("risk", "")
+                ).strip().upper()
+
+                if risk not in ("LOW", "MEDIUM", "HIGH"):
+                    raise ValueError("Unknown risk category")
+
+        except Exception:
+            st.error(
+                "Unable to analyse this message. "
+                "Please try again or select another model."
+            )
+
+        else:
+
+            scan_record = {
+                "time": datetime.now().strftime(
+                    "%d %b %Y, %I:%M %p"
+                ),
+                "message": message,
+                "model": model_choice,
+                "risk": risk
+            }
+
+            st.session_state.scan_history.append(
+                scan_record
+            )
+
+            st.session_state.latest_result = {
+                "result": result,
+                "risk": risk,
+                "model": model_choice,
+                "message": message
+            }
+
+
+# ---------------------------------
+# Display latest result
+# ---------------------------------
+
+latest = st.session_state.latest_result
+
+if latest is not None:
+
+    result = latest["result"]
+    risk = latest["risk"]
+    selected_model = latest["model"]
+
+    score = result.get("score")
+    reasons = result.get("reasons", [])
+
+    if isinstance(reasons, str):
+        reasons = [reasons]
+
+    if not isinstance(reasons, (list, tuple)):
+        reasons = []
+
+    st.divider()
+    st.subheader("📊 Analysis Result")
+
+    # ---------------------------------
+    # Risk classification
+    # ---------------------------------
+
+    if risk == "LOW":
+        risk_class = "low-risk"
+        risk_label = "🟢 LOW RISK"
+        description = (
+            "No major scam indicators were identified "
+            "by the selected model."
+        )
+
+    elif risk == "MEDIUM":
+        risk_class = "medium-risk"
+        risk_label = "🟠 MEDIUM RISK"
+        description = (
+            "Potentially suspicious message patterns "
+            "were identified."
+        )
+
+    else:
+        risk_class = "high-risk"
+        risk_label = "🔴 HIGH RISK"
+        description = (
+            "The selected model identified a high "
+            "level of potential scam risk."
+        )
+
+    st.markdown(
+        f"""
+        <div class="risk-card {risk_class}"
+             role="status">
+            <h2>{escape(risk_label)}</h2>
+            <p>{escape(description)}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.write(f"**Risk level:** {risk}")
+    st.write(f"**Detection model:** {selected_model}")
+
+    # ---------------------------------
+    # Score and confidence
+    # ---------------------------------
+
+    if selected_model == "Machine Learning":
+
+        confidence = result.get("confidence")
+
+        if isinstance(confidence, (int, float)):
+            st.metric(
+                "Model Confidence",
+                f"{confidence:.2f}%"
+            )
+        else:
+            st.info(
+                "Model confidence is not available."
+            )
+
+        st.caption(
+            "Confidence is a model estimate, "
+            "not a guarantee of accuracy."
+        )
+
+    else:
+        if score is not None:
+            st.metric(
+                "Rule-Based Risk Score",
+                score
+            )
+        else:
+            st.info(
+                "Risk score is not available."
+            )
+
+    # ---------------------------------
+    # Explanation
+    # ---------------------------------
+
+    st.divider()
+    st.subheader("💡 Why Was This Result Given?")
+
+    if selected_model == "Machine Learning":
+
+        st.info(
+            "This prediction uses patterns learned "
+            "from training messages. Detailed "
+            "feature-level explanations are not "
+            "currently available."
+        )
+
+    elif reasons:
+
+        for reason in reasons:
+            st.write(f"• {reason}")
+
+    else:
+        st.write(
+            "No rule-based scam indicators were reported."
+        )
+
+    # ---------------------------------
+    # Safety recommendations
+    # ---------------------------------
+
+    st.divider()
+    st.subheader("🛡️ Safety Recommendations")
+
+    if risk == "LOW":
+
+        st.success(
+            "No major scam indicators were identified. "
+            "However, always verify unexpected requests "
+            "before sharing personal information."
+        )
+
+    elif risk == "MEDIUM":
+
+        st.warning(
+            "This message may be suspicious. "
+            "Avoid clicking unfamiliar links or opening "
+            "unexpected attachments. Verify the sender "
+            "through a trusted channel."
+        )
+
+    else:
+
+        st.error(
+            "This message may be a scam. "
+            "Do not share passwords, banking details "
+            "or verification codes. Contact the "
+            "organisation through official channels."
+        )
+
+    # ---------------------------------
+    # Technical result
+    # ---------------------------------
+
+    with st.expander("🔧 Technical Result"):
+        st.json(result)
+
+
+# ---------------------------------
+# Message scan history
+# ---------------------------------
+
+st.divider()
+st.header("📋 Message Scan History")
+
+st.write(
+    "Review messages checked during your current session."
+)
+
+history = st.session_state.scan_history
+
+if history:
+
+    st.metric(
+        "Total Messages Checked",
+        len(history)
+    )
+
+    low_count = sum(
+        1 for item in history
+        if item["risk"] == "LOW"
+    )
+
+    medium_count = sum(
+        1 for item in history
+        if item["risk"] == "MEDIUM"
+    )
+
+    high_count = sum(
+        1 for item in history
+        if item["risk"] == "HIGH"
+    )
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric("🟢 Low", low_count)
+
+    with col2:
+        st.metric("🟠 Medium", medium_count)
+
+    with col3:
+        st.metric("🔴 High", high_count)
+
+    for index, record in enumerate(
+        reversed(history),
+        start=1
+    ):
+
+        record_risk = record["risk"]
+
+        if record_risk == "LOW":
+            risk_icon = "🟢"
+        elif record_risk == "MEDIUM":
+            risk_icon = "🟠"
+        else:
+            risk_icon = "🔴"
+
+        with st.expander(
+            f"Scan {index} — "
+            f"{risk_icon} {record_risk} RISK"
+        ):
+
+            st.write(
+                "**Date and Time:**",
+                record["time"]
+            )
+
+            st.write(
+                "**Message:**",
+                record["message"]
+            )
+
+            st.write(
+                "**Detection Model:**",
+                record["model"]
+            )
+
+            st.write(
+                "**Risk Level:**",
+                record["risk"]
+            )
+
+    # ---------------------------------
+    # Clear history
+    # ---------------------------------
+
+    if st.button(
+        "🗑️ Clear Scan History",
+        use_container_width=True
+    ):
+
+        st.session_state.scan_history = []
+        st.session_state.latest_result = None
+
+        st.rerun()
+
+else:
+
+    st.info(
+        "No messages have been checked in this session."
+    )
+
+
+# ---------------------------------
+# Accessibility information
+# ---------------------------------
+
+st.divider()
+st.subheader("♿ Accessibility Features")
+
+st.write(
+    "ShieldSense uses labelled input fields, "
+    "text-based risk descriptions and colour-coded "
+    "results to make information easier to understand."
+)
+
+st.info(
+    "Risk categories are communicated using both "
+    "colour and text, so users do not need to "
+    "rely on colour alone."
+)
+
+st.caption(
+    "WCAG 2.2 AA compliance has not yet been verified. "
+    "Keyboard navigation, screen-reader support, "
+    "focus behaviour and contrast must be tested."
+)
+
+
+# ---------------------------------
+# Privacy notice
+# ---------------------------------
+
+st.divider()
+st.subheader("🔒 Privacy Notice")
+
+st.write(
+    "Message history is kept in the current "
+    "Streamlit session and is not automatically "
+    "saved to a database by this interface."
+)
+
+st.write(
+    "Avoid entering sensitive personal information. "
+    "Message processing and logging behaviour also "
+    "depend on the connected detection models "
+    "and deployment environment."
+)
+
+
+# ---------------------------------
+# Footer
+# ---------------------------------
+
+st.divider()
+
+st.markdown(
+    "### About ShieldSense"
+)
+
+st.write(
+    "ShieldSense is an educational prototype "
+    "designed to support scam awareness through "
+    "accessible message screening."
+)
+
+st.markdown(
+    '<p class="footer">'
+    '🛡️ ShieldSense | ITEC320 Industry Placement Project'
+    '</p>',
+    unsafe_allow_html=True
+)
