@@ -1,0 +1,27 @@
+Hi everyone, we need to finish the remaining ShieldSense tasks before our final demonstration.
+
+**Jaskaran – Data & Labelling**
+- Finalise and verify the labelled dataset.
+- Prepare the locked test dataset for final model evaluation.
+- Upload the files to GitHub and let me know.
+
+**Alisha – Interface & Accessibility**
+- Finalise the Streamlit interface.
+- Check that the interface is easy to use and accessible.
+- Test both detection model options.
+- Push any final changes to GitHub.
+
+**Bijay – Integration, Documentation & QA**
+- Test the complete application.
+- Check that both models work correctly with the interface.
+- Fix or report any integration issues.
+- Complete the QA documentation and update GitHub.
+
+**Kapil (Me) – Model & Evaluation**
+- Complete final model evaluation using Jaskaran's verified test dataset.
+- Record accuracy, precision, recall, F1-score and confusion matrix.
+- Document model limitations and final results.
+
+Once everyone finishes their tasks, we can review the complete application together and prepare our final report and presentation.
+
+Please update the group when your part is completed. Thanks!
