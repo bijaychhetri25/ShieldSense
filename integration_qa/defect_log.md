@@ -13,7 +13,7 @@ quality assurance testing of the ShieldSense application.
 
 | ID | Issue | Severity | Status | Action |
 |---|---|---|---|---|
-| D01 | To be identified during testing | - | Open | Test required |
+| - | No confirmed defects identified in the initial QA tests | - | Not applicable | Retest after final model integration |
 
 ## Defect Triage
 
