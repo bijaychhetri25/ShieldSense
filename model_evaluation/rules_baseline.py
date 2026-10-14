@@ -1,3 +1,4 @@
+
 import re
 
 
@@ -45,10 +46,13 @@ PRIZE_WORDS = [
 THREAT_WORDS = [
     "account suspended",
     "account has been suspended",
+    "account is suspended",
     "account blocked",
     "account has been blocked",
+    "account is blocked",
     "account locked",
     "account has been locked",
+    "account is locked",
     "final warning"
 ]
 
@@ -115,27 +119,32 @@ def classify_message(message):
             f"Urgency language detected ({urgency_count} indicator(s))"
         )
 
+    # Financial/payment language
     if contains_keyword(message, FINANCIAL_WORDS):
         score += 2
         reasons.append("Financial/payment language detected")
 
+    # Requests for sensitive information
     if contains_keyword(message, SENSITIVE_INFO_WORDS):
         score += 3
         reasons.append("Request for sensitive information detected")
 
+    # URLs
     if contains_url(message):
         score += 2
         reasons.append("URL detected")
 
+    # Prize/reward language
     if contains_keyword(message, PRIZE_WORDS):
         score += 2
         reasons.append("Prize/reward language detected")
 
+    # Threat or account-warning language
     if contains_keyword(message, THREAT_WORDS):
         score += 2
         reasons.append("Threat or account-warning language detected")
 
-    # Refined thresholds after supervisor feedback
+    # Risk classification thresholds
     if score >= 3:
         risk = "HIGH"
 
@@ -167,14 +176,16 @@ if __name__ == "__main__":
         "URGENT! Your account has been suspended. "
         "Verify your password immediately at http://example.com",
 
-        # Supervisor test case:
-        # checks that 'pin' does not match inside 'shopping'
+        # Checks that 'pin' does not match inside 'shopping'
         "Going shopping later?",
 
-        # Supervisor test cases for risk classification
+        # Additional risk-classification test cases
         "Send me your password now",
         "Your bank account has been blocked, transfer now",
-        "URGENT! Act now, limited time!"
+        "URGENT! Act now, limited time!",
+
+        # Additional account-warning variations
+        "URGENT!!! Your account is blocked!!! Verify now!!!"
     ]
 
     for message in test_messages:
