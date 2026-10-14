@@ -178,3 +178,17 @@ Further testing should cover medium-risk messages, empty input, unusual message 
 - **Underlying background:** Not confirmed.
 - **Status:** INCOMPLETE — a definitive contrast ratio cannot be recorded until the underlying background is verified.
 - **Limitation:** Full WCAG 2.2 AA compliance has not been established. Further contrast testing is required for all risk levels and relevant interface elements.
+
+## Additional Manual Testing — 14 October 2026
+
+Three additional unusual-message scenarios were tested through the Streamlit application.
+
+| Test | Scenario | Expected Result | Actual Result | Status |
+|---|---|---|---|---|
+| MT01 | Urgent account-blocking message with repeated punctuation | HIGH | HIGH | PASS |
+| MT02 | Long, normal shopping message | LOW | LOW | PASS |
+| MT03 | Account verification message containing a URL | HIGH or MEDIUM | MEDIUM | PASS |
+
+All three scenarios produced the expected risk classifications. These results apply only to the selected examples and do not establish overall scam-detection accuracy.
+
+The URL test used `example.com` as a test address. The link was not opened.
