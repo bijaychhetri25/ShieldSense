@@ -56,8 +56,30 @@ The interface successfully:
 **Status: PASS**
 
 The supervisor feedback test cases and the current local interface
-workflow have been checked. Further QA will be performed when the
-machine-learning model is integrated with the interface.
+workflow have been checked. The machine-learning model has since been integrated with the interface and tested using selected normal and suspicious messages. Further QA is still required to cover additional risk levels, empty-input validation, accessibility and false-positive or false-negative cases.
+## Week 6 Extended Rules-Based QA
+
+The rules-based classifier was tested with seven test cases covering password requests, blocked bank accounts, urgency-only messages, normal shopping messages, a payment-related message, empty input, and a long normal message.
+
+| Test ID | Test Description | Expected | Actual | Result |
+|---|---|---|---|---|
+| TC07 | Password request | HIGH | HIGH | PASS |
+| TC08 | Blocked bank account + transfer | HIGH | HIGH | PASS |
+| TC09 | Urgency-only message | HIGH | HIGH | PASS |
+| TC10 | Shopping message / word-boundary check | LOW | LOW | PASS |
+| TC11 | Medium-risk payment message | MEDIUM | MEDIUM | PASS |
+| TC12 | Empty message | LOW | LOW | PASS |
+| TC13 | Long normal message | LOW | LOW | PASS |
+
+### Extended QA Summary
+
+- Tests executed: 7
+- Passed: 7
+- Failed: 0
+- Pass rate: 100%
+
+These results apply only to the seven selected rules-based test cases. Empty input was classified as LOW by the classifier; further verification is needed to determine whether the interface should instead display an input-validation message.
+
 ## Week 7 Integrated Application QA
 
 The integrated ShieldSense Streamlit application was manually tested using both the Rules-Based Baseline and Machine Learning modes. Two messages were tested with each model: a normal meeting message and a suspicious bank message.

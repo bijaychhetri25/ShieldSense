@@ -39,6 +39,26 @@ TEST_CASES = [
         "message": "Going shopping later?",
         "expected": "LOW",
     },
+
+    {
+        "id": "TC11",
+        "description": "Medium-risk payment message",
+        "message": "Your subscription payment failed. Please review your account.",
+        "expected": "MEDIUM",
+    },
+    {
+        "id": "TC12",
+        "description": "Empty message",
+        "message": "",
+        "expected": "LOW",
+    },
+    {
+        "id": "TC13",
+        "description": "Long normal message",
+        "message": "Hello, I hope you are doing well. I will attend the meeting tomorrow and bring my notes.",
+        "expected": "LOW",
+    },
+
 ]
 
 
