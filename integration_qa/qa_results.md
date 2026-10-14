@@ -170,3 +170,14 @@ Further testing should cover medium-risk messages, empty input, unusual message 
 - **Actual result:** The application displays risk labels such as HIGH RISK in red, with the risk level also shown as HIGH.
 - **Status:** PASS for text-label visibility.
 - **Limitation:** Formal colour-contrast ratios have not been measured, so WCAG 2.2 AA contrast compliance has not been confirmed.
+### HIGH RISK Colour Contrast Check
+
+- **Test:** Calculate the contrast ratio of the HIGH RISK text against its alert background.
+- **Text colour:** `rgb(125, 53, 59)`.
+- **Alert background style:** `rgba(255, 43, 43, 0.09)`.
+- **Assumed underlying background:** White (`rgb(255, 255, 255)`).
+- **Calculated composite background:** Approximately `rgb(255, 236, 236)`.
+- **Calculated contrast ratio:** Approximately 7.55:1.
+- **Expected result:** At least 4.5:1 for normal text under WCAG 2.2 AA.
+- **Status:** Meets the 4.5:1 target under the stated background assumption.
+- **Limitation:** This calculation covers the inspected HIGH RISK text only. Other risk labels, interface elements and accessibility requirements require separate verification.
