@@ -103,3 +103,28 @@ The integrated ShieldSense Streamlit application was manually tested using both 
 These tests confirm the expected outputs for the four selected messages only. They do not establish the overall accuracy of the machine-learning model. The confidence value is a model estimate, not a guarantee that a message is fraudulent or safe.
 
 Further testing should cover medium-risk messages, empty input, unusual message formats, accessibility, and additional false-positive and false-negative cases.
+### Empty-Input Validation Test
+
+- **Test:** Submit an empty message through the Streamlit interface.
+- **Expected result:** The application displays a warning and does not classify the empty input.
+- **Actual result:** The application displays “Please enter a message before checking.”
+- **Status:** PASS
+- **Evidence:** Manual test of the running Streamlit application.
+### Unusual Message Format Test
+
+- **Test message:** “URGENT!!! Your account is blocked!!! Verify now!!!”
+- **Rules-Based Baseline:** LOW RISK, risk score 1.
+- **Machine Learning:** HIGH RISK, model confidence 77.44%.
+- **Observation:** The two classification modes returned different risk levels for the same message.
+- **Status:** Further investigation required.
+- **Action:** Review the rules-based keyword detection and compare the results against the intended classification policy. Do not mark this as a confirmed defect until the expected result is established.
+### Additional Rules-Based Classifier Retest
+
+- **Test message:** “URGENT!!! Your account is blocked!!! Verify now!!!”
+- **Previous result:** LOW RISK, score 1.
+- **Updated result:** HIGH RISK, score 3.
+- **Reason:** The threat keyword list was updated to recognise the phrase “account is blocked”.
+- **Retest result:** The message now returns HIGH RISK with urgency and threat/account-warning indicators.
+- **Formal QA suite:** TC07–TC13 — 7 passed, 0 failed.
+- **Status:** Retest successful for the documented scenarios.
+- **Note:** The classifier change still requires coordination with the Model & Evaluation Lead before it is committed to the shared repository.
