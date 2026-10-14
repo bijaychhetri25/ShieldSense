@@ -2,6 +2,8 @@
 
 ShieldSense is a proof-of-concept application designed to analyse short SMS or chat messages for possible scam indicators and classify them as Low, Medium, or High risk.
 
+The application provides a Streamlit web interface with a rules-based baseline and a machine-learning classifier. Results are not a guarantee that a message is safe or fraudulent.
+
 ## Project Structure
 
 - `data_labelling/` – Dataset preparation, risk taxonomy and labelling work.
@@ -16,7 +18,7 @@ ShieldSense is a proof-of-concept application designed to analyse short SMS or c
 - Python 3.x
 - Git
 
-The application uses Streamlit for the web interface and scikit-learn for machine-learning predictions. Install the dependencies before running the application.
+The application uses Streamlit for the web interface and scikit-learn for machine-learning predictions.
 
 ## Installation
 
@@ -25,7 +27,9 @@ Clone the repository:
 ```bash
 git clone https://github.com/bijaychhetri25/ShieldSense.git
 cd ShieldSense
-### Install dependencies
+```
+
+## Install Dependencies
 
 Install the required packages:
 
@@ -33,9 +37,9 @@ Install the required packages:
 python3 -m pip install -r requirements.txt
 ```
 
-### Run the application
+## Run the Application
 
-Start the ShieldSense web application:
+From the project root, run:
 
 ```bash
 python3 -m streamlit run interface_accessibility/app.py
@@ -43,7 +47,7 @@ python3 -m streamlit run interface_accessibility/app.py
 
 Open the local URL displayed in the terminal, usually `http://localhost:8501`.
 
-### Run quality assurance tests
+## Run Quality Assurance Tests
 
 From the project root, run:
 
@@ -51,4 +55,13 @@ From the project root, run:
 python3 integration_qa/qa_checks.py
 ```
 
-Review the test results in the terminal.
+Review the test results in the terminal. The documented rules-based QA suite has seven test cases. Results apply only to the scenarios tested.
+
+## Limitations
+
+- ShieldSense is a proof-of-concept and cannot guarantee whether a message is safe or fraudulent.
+- Scam-detection results may be incorrect.
+- Machine-learning confidence should not be interpreted as a guarantee of correctness.
+- New scam techniques and unusual message patterns may not be recognised.
+- Further model evaluation, edge-case testing and accessibility verification are required.
+- Formal colour-contrast ratios have not been measured, so WCAG 2.2 AA contrast compliance has not been confirmed.
