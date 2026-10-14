@@ -40,13 +40,31 @@ The tested cases included:
 
 These results demonstrate that the tested scenarios produced the expected outputs. They do not represent a complete evaluation of the application's accuracy or performance.
 
-The application was also tested manually with selected messages:
+### 3.1 Integrated Application Testing
+
+The application was manually tested with the following messages:
 
 - "Your bank account has been blocked, transfer now" — HIGH.
 - "Your subscription payment failed. Please review your account." — MEDIUM.
 - "Going shopping later?" — LOW.
 
-These manual checks support the expected behaviour for the selected examples only.
+The empty-input test was also completed. When the message field was left empty and the Check Message button was clicked, the interface displayed a warning asking the user to enter a message.
+
+These checks passed for the selected examples and tested interface behaviour only.
+
+### 3.2 Additional Manual Testing — 14 October 2026
+
+Three additional unusual-message scenarios were tested through the Streamlit application.
+
+| Test | Scenario | Expected Result | Actual Result | Status |
+|---|---|---|---|---|
+| MT01 | Urgent account-blocking message with repeated punctuation | HIGH | HIGH | PASS |
+| MT02 | Long, normal shopping message | LOW | LOW | PASS |
+| MT03 | Account verification message containing a URL | HIGH or MEDIUM | MEDIUM | PASS |
+
+All three scenarios produced the expected risk classifications. These results apply only to the selected examples and do not establish overall scam-detection accuracy.
+
+The URL test used `example.com` as a test address. The link was not opened.
 
 ## 4. Accessibility Testing
 
@@ -126,7 +144,7 @@ From the project root, run:
 python3 integration_qa/qa_checks.py
 ```
 
-The documented test run completed seven test cases with seven passing and zero failing. Run the script again after future code changes to confirm the current result.
+The recorded baseline test run completed seven test cases with seven passing and zero failing. Run the script again after future code changes to confirm the current result.
 
 ### 7.4 Run the Rules-Based Classifier Directly
 
@@ -145,8 +163,8 @@ The current application has the following limitations:
 1. **Limited test coverage:** Only selected scenarios have been tested.
 2. **Machine-learning evaluation:** Broader evaluation of the machine-learning predictor is still required.
 3. **False positives and false negatives:** Further testing is needed to identify messages that are incorrectly classified.
-4. **Empty input:** The direct rules-based classifier returns LOW for an empty message. The interface should be checked to ensure that empty input is handled appropriately.
-5. **Unusual messages:** Additional tests are needed for spelling mistakes, punctuation, long messages, URLs and mixed-case wording.
+4. **Empty input:** The Streamlit interface displayed a warning when the input was empty. However, the direct rules-based classifier returns LOW for an empty message when called independently. This behaviour should be reviewed to ensure consistency.
+5. **Unusual messages:** Three additional scenarios were tested successfully, but broader testing is still required for spelling mistakes, punctuation, long messages, URLs and mixed-case wording.
 6. **Classification explanations:** The clarity and usefulness of explanations need further review.
 7. **Accessibility:** Formal contrast measurements and broader keyboard and screen-reader testing remain incomplete.
 8. **Detection accuracy:** The current test results do not establish overall scam-detection accuracy.
@@ -160,21 +178,21 @@ The following tasks are recommended for future development and handover:
 | Priority | Task | Recommended action |
 |---|---|---|
 | High | Machine-learning QA | Expand testing across representative messages and document the results. |
-| High | Empty-input handling | Verify interface validation and display a suitable message when no text is entered. |
 | High | False-positive and false-negative testing | Evaluate performance using a held-out set of labelled messages. |
-| Medium | Unusual-message testing | Test long messages, punctuation, spelling variations, URLs and mixed case. |
 | Medium | Accessibility verification | Complete keyboard, contrast and screen-reader checks. |
 | Medium | Model explanations | Review whether explanations are clear and consistent with the classification. |
 | Medium | Documentation alignment | Keep the README, QA results and handover report consistent with the implementation. |
 | Low | Dataset expansion | Add more representative messages and document their sources and labelling process. |
 
-The team should update the relevant QA records and documentation when these tasks are completed.
+The empty-input warning and three additional unusual-message scenarios have been tested. Further testing is still recommended before treating those areas as fully validated.
+
+The team should update the relevant QA records and documentation when outstanding tasks are completed.
 
 ## 10. Version Control and Handover
 
 The project uses GitHub to share code and track changes.
 
-The classifier update was committed and pushed in commit `1763dfa`. The handover report was subsequently updated to clarify the classifier status and document the testing results and remaining limitations.
+The classifier update was committed and pushed in commit `1763dfa`. The technical handover report and additional QA results were subsequently updated to document the testing results and remaining limitations.
 
 The repository's `main` branch should be checked before further changes are made. Team members should review changes, run relevant tests and communicate updates through the agreed project workflow.
 
@@ -192,9 +210,9 @@ The following documents support the handover:
 
 The `v0.7.0` milestone represents a Week 7 feature-freeze milestone, not a final production release.
 
-The current proof of concept has a working Streamlit interface, a rules-based classifier and documented results for selected QA scenarios. The baseline QA script passed all seven documented tests in the recorded run.
+The current proof of concept has a working Streamlit interface, a rules-based classifier and documented results for selected QA scenarios. The recorded baseline QA script passed all seven documented tests. Three additional manual scenarios also produced the expected classifications, and the empty-input warning was confirmed in the interface.
 
-Further machine-learning evaluation, edge-case testing, empty-input validation and accessibility verification remain necessary.
+Further machine-learning evaluation, false-positive and false-negative testing, broader edge-case testing and accessibility verification remain necessary.
 
 **Overall status:** The application is suitable for continued development and demonstration as a proof of concept. It is not yet fully validated for production use, and full WCAG 2.2 Level AA compliance has not been confirmed.
 
