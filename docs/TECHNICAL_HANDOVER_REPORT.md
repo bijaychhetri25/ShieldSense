@@ -19,7 +19,7 @@ The Streamlit interface is located in `interface_accessibility/app.py`. It conne
 
 The application was tested locally using selected normal and suspicious messages. Four selected integrated application scenarios produced their expected classifications.
 
-The rules-based classifier was updated to recognise additional account-warning phrases, including "account is suspended", "account is blocked" and "account is locked". The updated classifier was committed and pushed to GitHub.
+The rules-based classifier was locally updated to recognise additional account-warning phrases, including "account is suspended", "account is blocked" and "account is locked". The change improved classification for the tested wording variations. Coordination with the Model & Evaluation Lead is still required before the change is committed and pushed to the shared repository.
 
 These changes improve handling of the tested wording variations but do not establish overall scam-detection accuracy.
 
