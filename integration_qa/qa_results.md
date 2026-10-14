@@ -162,3 +162,11 @@ Further testing should cover medium-risk messages, empty input, unusual message 
 - **Expected result:** VoiceOver should announce interface controls clearly.
 - **Actual result:** VoiceOver was activated successfully and announced the control names during keyboard navigation.
 - **Status:** PASS for the controls tested.
+
+### Risk Label and Colour Accessibility Check
+
+- **Test:** Check whether risk levels are displayed using both text labels and colours.
+- **Expected result:** LOW, MEDIUM and HIGH risk levels should be identifiable by text as well as colour.
+- **Actual result:** The application displays risk labels such as HIGH RISK in red, with the risk level also shown as HIGH.
+- **Status:** PASS for text-label visibility.
+- **Limitation:** Formal colour-contrast ratios have not been measured, so WCAG 2.2 AA contrast compliance has not been confirmed.
