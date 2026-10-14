@@ -128,3 +128,37 @@ Further testing should cover medium-risk messages, empty input, unusual message 
 - **Formal QA suite:** TC07–TC13 — 7 passed, 0 failed.
 - **Status:** Retest successful for the documented scenarios.
 - **Note:** The classifier change still requires coordination with the Model & Evaluation Lead before it is committed to the shared repository.
+### Keyboard Accessibility Check
+
+- **Test:** Navigate through the ShieldSense interface using the keyboard.
+- **Expected result:** Users can reach and activate the message input, classification mode selector and Check Message button using the keyboard.
+- **Initial observation:** The Check Message button was not highlighted during keyboard navigation in Safari.
+- **Corrective action:** Enabled Safari's setting to highlight each item on a webpage when using Tab.
+- **Retest result:** The Check Message button became highlighted and was successfully activated using Enter.
+- **Status:** PASS after browser setting adjustment.
+- **Note:** This test confirms keyboard operation in the tested Safari configuration. Further accessibility checks are still required.
+
+### Risk Label and Colour Accessibility Check
+
+- **Purpose:** Check whether users can identify the risk level without relying on colour alone.
+- **HIGH-risk test:** The interface displayed “HIGH RISK” with a red indicator.
+- **MEDIUM-risk test:** The interface displayed “MEDIUM RISK” with an amber indicator.
+- **LOW-risk test:** The interface displayed “LOW RISK” with a green indicator.
+- **Result:** All three tested risk levels included a text label as well as a colour indicator.
+- **Status:** PASS for text-based risk labels in the tested scenarios.
+- **Limitation:** This check does not confirm colour contrast compliance, screen-reader compatibility or full WCAG 2.2 AA compliance.
+
+### Visual Contrast Check
+
+- **Test:** Visually inspect the risk labels and explanatory text in the ShieldSense interface.
+- **Observation:** All text appeared easy to read during the visual inspection.
+- **Result:** No obvious readability issue was observed in this check.
+- **Status:** Visual inspection completed.
+- **Limitation:** Formal colour-contrast ratios have not been measured, so WCAG contrast compliance has not been confirmed.
+
+### Screen-Reader Accessibility Check
+
+- **Test:** Navigate through the ShieldSense interface using macOS VoiceOver in Safari.
+- **Expected result:** VoiceOver should announce interface controls clearly.
+- **Actual result:** VoiceOver was activated successfully and announced the control names during keyboard navigation.
+- **Status:** PASS for the controls tested.
