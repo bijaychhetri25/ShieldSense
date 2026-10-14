@@ -58,3 +58,26 @@ The interface successfully:
 The supervisor feedback test cases and the current local interface
 workflow have been checked. Further QA will be performed when the
 machine-learning model is integrated with the interface.
+## Week 7 Integrated Application QA
+
+The integrated ShieldSense Streamlit application was manually tested using both the Rules-Based Baseline and Machine Learning modes. Two messages were tested with each model: a normal meeting message and a suspicious bank message.
+
+| Test ID | Model | Test message | Expected | Actual | Result |
+|---|---|---|---|---|---|
+| INT01 | Rules-Based Baseline | Normal meeting message | LOW | LOW | PASS |
+| INT02 | Machine Learning | Normal meeting message | LOW | LOW | PASS |
+| INT03 | Rules-Based Baseline | Suspicious bank message | HIGH | HIGH (score: 9) | PASS |
+| INT04 | Machine Learning | Suspicious bank message | HIGH | HIGH (confidence: 59.19%) | PASS |
+
+### Integrated QA Summary
+
+- Integrated application tests executed: 4
+- Passed: 4
+- Failed: 0
+- Pass rate: 100%
+
+### Limitations
+
+These tests confirm the expected outputs for the four selected messages only. They do not establish the overall accuracy of the machine-learning model. The confidence value is a model estimate, not a guarantee that a message is fraudulent or safe.
+
+Further testing should cover medium-risk messages, empty input, unusual message formats, accessibility, and additional false-positive and false-negative cases.

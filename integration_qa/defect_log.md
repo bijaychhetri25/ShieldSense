@@ -13,7 +13,8 @@ quality assurance testing of the ShieldSense application.
 
 | ID | Issue | Severity | Status | Action |
 |---|---|---|---|---|
-| - | No confirmed defects identified in the initial QA tests | - | Not applicable | Retest after final model integration |
+| D01 | No failures identified in the four documented integrated QA tests. | None | Passed for tested cases | Continue broader testing before final handover. |
+| D02 | Additional testing is required for medium-risk messages, empty input and unusual message formats. | Testing gap | Open | Add and run further test cases before final handover. |
 
 ## Defect Triage
 
