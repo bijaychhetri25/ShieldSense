@@ -10,36 +10,46 @@ Integration, Documentation & QA Lead
 Jaskaran Singh  
 Data & Labelling Lead
 
-## Dataset
+## Dataset Status
+
+### Historical Dataset
 
 File: `data/shieldsense_messages.csv`
 
-The current ShieldSense dataset contains 180 synthetic messages.
+The earlier dataset-generation workflow contained 180 synthetic messages, balanced across Red, Amber and Green risk levels, with 60 messages per level.
 
-## Dataset Summary
+The historical dataset was checked for duplicate and empty messages. The recorded checks reported 180 unique messages, zero duplicates and zero empty messages.
 
-| Risk Level | Number of Messages |
-|---|---:|
-| Red | 60 |
-| Amber | 60 |
-| Green | 60 |
-| **Total** | **180** |
+**Status: Retired.** The earlier dataset and its generation and verification scripts under `src/` have been removed from the current working tree. Their earlier versions remain available in Git history.
 
-## Dataset Checks
+### Current Authoritative Dataset
 
-The dataset generation and verification scripts were run successfully.
+File: `data_labelling/shieldsense-dataset.csv`
 
-- Total messages: 180
-- Unique messages: 180
-- Duplicate messages: 0
-- Empty messages: 0
-- Required columns: Passed
-- Risk levels: Red, Amber and Green
-- Classes are balanced at 60 messages per risk level.
+The current dataset contains 202 labelled messages and is maintained by the Data & Labelling Lead.
 
-## Hard Negatives
+The current model workflow uses:
 
-Additional legitimate-style messages were included to provide harder examples for testing. These include:
+- `data_labelling/training-set.csv` — 162 training messages.
+- `data_labelling/test-set.csv` — 40 locked test messages.
+
+The locked test set must remain unchanged unless the supervisor authorises a change.
+
+## Current Dataset Workflow
+
+The current dataset workflow is maintained in `data_labelling/` and includes:
+
+- `create_dataset.py` — creates the current dataset.
+- `dedupe_dataset.py` — checks and removes duplicate messages.
+- `split_dataset.py` — creates the training and test splits.
+- `verify_dataset.py` — validates the dataset.
+- `leakage_check.py` — checks for overlap between training and test data.
+
+Other supporting scripts and documentation in `data_labelling/` remain part of the project.
+
+## Historical Hard Negatives
+
+The earlier dataset included synthetic legitimate-style examples intended to make testing more challenging, including:
 
 - Bank statements
 - Payment confirmations
@@ -50,30 +60,28 @@ Additional legitimate-style messages were included to provide harder examples fo
 - Banking account information
 - Scheduled payments
 
-These examples are synthetic legitimate-style examples and should be reviewed and labelled according to the agreed taxonomy.
+These examples were intended to support review and labelling against the agreed risk taxonomy. This historical description does not establish that every example was transferred into the current dataset.
 
-## Handover Responsibility
+## Handover Responsibilities
 
-The dataset is now handed back to the Data & Labelling Lead for:
+The Data & Labelling Lead is responsible for:
 
-1. Reviewing the messages against the agreed risk taxonomy.
+1. Reviewing messages against the agreed risk taxonomy.
 2. Checking label consistency.
-3. Completing any required corrections.
-4. Maintaining the dataset and labelling documentation.
-5. Preparing the final dataset for model development and evaluation.
+3. Completing required corrections.
+4. Maintaining the current dataset and labelling documentation.
+5. Maintaining the training and locked test sets according to the agreed evaluation process.
 
-## Supporting Source Code
+## QA and Limitations
 
-Dataset generation:
+The historical dataset's recorded checks reported no duplicate or empty messages and balanced risk levels.
 
-`src/create_dataset.py`
+The current dataset and evaluation workflow must be assessed using their own verification and leakage-check results. Historical checks do not establish that the current dataset passes every check.
 
-Dataset verification:
+The current model evaluation uses the separate training and locked test files. The test set must not be used for model tuning.
 
-`src/verify_dataset.py`
+## Handover Status
 
-## QA Note
+The earlier 180-message dataset workflow has been retired from the current working tree. `data_labelling/shieldsense-dataset.csv` is the current authoritative dataset.
 
-The dataset has been checked for duplicates, empty messages and class balance. Further labelling review remains the responsibility of the Data & Labelling Lead.
-
-**Handover status: Ready for Jaskaran's review.**
+The original dataset files and scripts remain recoverable through Git history.
