@@ -192,3 +192,41 @@ Three additional unusual-message scenarios were tested through the Streamlit app
 All three scenarios produced the expected risk classifications. These results apply only to the selected examples and do not establish overall scam-detection accuracy.
 
 The URL test used `example.com` as a test address. The link was not opened.
+
+## Week 10 Integration QA — 15 October 2026
+
+### Automated Rules-Based QA
+
+The automated script `integration_qa/qa_checks.py` was executed against the rules-based classifier.
+
+| Test ID | Test Case | Expected | Actual | Result |
+|---|---|---|---|---|
+| TC07 | Password request | HIGH | HIGH | PASS |
+| TC08 | Blocked bank account and transfer | HIGH | HIGH | PASS |
+| TC09 | Urgency-only message | HIGH | HIGH | PASS |
+| TC10 | Normal shopping message | LOW | LOW | PASS |
+| TC11 | Subscription payment message | MEDIUM | MEDIUM | PASS |
+| TC12 | Empty input at classifier level | LOW | LOW | PASS |
+| TC13 | Long normal message | LOW | LOW | PASS |
+
+**Automated summary:** 7 passed, 0 failed. Pass rate: 100%.
+
+Note: TC12 checks the classifier output for empty input. The interface separately displays a validation warning instead of classifying empty input.
+
+### Manual Integrated Application QA
+
+The Streamlit application was launched using `interface_accessibility/app.py`. Five manual scenarios were tested and reported as passing.
+
+| Test | Scenario | Expected Result | Status |
+|---|---|---|---|
+| MT04 | Empty input validation | Warning displayed; no classification | PASS |
+| MT05 | Normal meeting message using Rules-Based Baseline | LOW RISK | PASS |
+| MT06 | Password request using Rules-Based Baseline | HIGH RISK | PASS |
+| MT07 | Subscription payment message using Rules-Based Baseline | MEDIUM RISK | PASS |
+| MT08 | Urgent blocked-account message using Machine Learning | HIGH RISK | PASS |
+
+**Manual summary:** 5 passed, 0 failed, as reported during testing.
+
+### Limitations
+
+These results apply only to the selected automated and manual scenarios. They do not establish overall model accuracy or full accessibility compliance. The rules-based classifier and machine-learning model may produce different classifications for the same message. Further testing should include false positives, false negatives, measured colour contrast and screen-reader behaviour.
