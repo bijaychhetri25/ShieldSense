@@ -1,8 +1,8 @@
 # Data Card — ShieldSense Synthetic Scam-Message Dataset v0.2
 
 **Author:** Jaskaran Singh — Data & Labelling Lead
-**Date:** 24 September 2026
-**Status:** Draft
+**Date:** 15 October 2026
+**Status:** v1.0 Final
 
 ## 1. Dataset Name
 
@@ -29,11 +29,13 @@ Supports training and evaluation of a lightweight text classifier that labels SM
 
 ## 5. Labelling
 
-- Taxonomy: ShieldSense Risk Taxonomy v2.0
-- Protocol: ShieldSense Labelling Protocol v1.0
-- Labellers: All four team members
-- Inter-rater agreement: Cohen's kappa (target ≥ 0.61)
-- Adjudication: Documented in the agreement report
+- **Taxonomy:** ShieldSense Risk Taxonomy v2.0
+- **Protocol:** ShieldSense Labelling Protocol v1.0
+- **Primary labeller:** Jaskaran Singh (JS) — all 202 dataset messages
+- **Double-labelled sample:** 30 messages labelled independently by all four team members (Jaskaran, Kapil, Alisha, Bijay) for inter-rater agreement
+- **Agreement metric:** Cohen's kappa (primary), percentage agreement (secondary)
+- **Agreement result:** Average kappa = 0.832 (Almost perfect), 89.5% agreement
+- **Adjudication:** Documented in `inter-rater-agreement-report.md`
 
 ## 6. Held-Out Test Set
 
@@ -45,7 +47,7 @@ Supports training and evaluation of a lightweight text classifier that labels SM
 - **Test set composition:** 14 Low, 13 Medium, 13 High
 - **Lock status:** LOCKED as of 8 October 2026
 - **Lock note:** See `test-set-lock.md`
-- **Leakage check:** Scheduled for Week 6
+- **Leakage check:** - COMPLETED 8 October 2026 — PASS (zero overlap between training and test sets). See `leakage-check-report.md`.
 
 ## 7. Ethical Constraints
 
@@ -61,3 +63,5 @@ Supports training and evaluation of a lightweight text classifier that labels SM
 |---|---|---|---|
 | 0.1 | 24 Sep 2026 | Initial draft | Jaskaran |
 | 0.2 | 24 Sep 2026 | Added labeller training record and limitations | Jaskaran |
+| 0.3 | 8 Oct 2026 | Balanced dataset to 202 messages, locked test set | Jaskaran |
+| 1.0 | 15 Oct 2026 | Final — corrected labeller attribution, updated leakage check status, final counts | Jaskaran |

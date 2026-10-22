@@ -53,19 +53,19 @@ Percentage agreement of **89.5%** supports this — the labellers agreed on near
 
 ## 4. Disagreements Observed
 
-Disagreements occurred on 8 out of 30 messages (27%). These were resolved through the adjudication process defined in the protocol:
+Disagreements occurred on 6 out of 30 messages (20%). These were resolved through the adjudication process defined in the protocol:
 
 1. Two labellers disagree → message goes to a third labeller
 2. If third agrees with one of them → that label is final
 3. If all three disagree → Data & Labelling Lead makes the final ruling
 
-Examples of disagreements:
-
 | Message | Labels assigned | Resolution |
 |---|---|---|
-| "Your parcel is waiting. Click here." | Low, Medium, Medium, Low | Medium — shortened link raises band |
-| "Your ATO refund is ready. Log in to myGov." | Low, Medium, Low, Medium | Medium — matches scam template (hard negative) |
+| "Your parcel is waiting. Click here." | Medium, Low, Medium, Low | Medium — shortened link raises band |
+| "Your account has a new login." | Medium, Medium, Medium, Low | Medium — matches scam template |
+| "Your ATO refund is ready. Log in to myGov." | Medium, Medium, Low, Medium | Medium — matches scam template (hard negative) |
 | "Your account has been flagged. Verify now." | High, High, Medium, High | High — request + urgency |
+| "URGENT: act now." | Medium, High, High, High | High — urgency + vague threat |
 | "Confirm your identity." | Medium, Medium, Low, Medium | Medium — request but no urgency |
 
 ## 5. Patterns in Disagreements
